@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-subtitle>Javascript Dragons</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <form name="userform" method="post" #formController="ngForm" style="height:500px;">
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required>
+          </div>
+
+          <div class="form-group">
+              <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 10px" (click)="signInWithEmail()" [disabled]="formController.form.invalid">
+                Login with Email
+              </button>
+          </div>
+           <!-- <div class="form-group">
+              <button type="buton" class="btn btn-block" (click)="signInWithFacebook()">
+                <i class="fa fa-facebook" aria-hidden="true"></i> 
+                Login with Facebook
+              </button>
+
+             <button type="button" class="btn btn-block" (click)="signInWithTwitter()">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                Login with Twitter
+              </button> -->
+
+              <button type="button" class="btn btn-block" (click)="signInWithGithub()">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                Github Login
+              </button>
+
+              <button type="button" class="btn btn-block" (click)="signInWithGoogle()">
+                <i class="fa fa-google" aria-hidden="true"></i>
+                Google Login
+              </button>        
+        </form>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

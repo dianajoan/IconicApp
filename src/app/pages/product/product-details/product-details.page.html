@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab1"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title> {{(productDetail | async)?.name}}</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card class="welcome-card">
+   
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let product of (productDetail | async)?.imgUrl">
+        <img [src]="product" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+   
+    <ion-card-header>
+      <ion-card-subtitle>{{(productDetail | async)?.name}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-row class="ion-text-center">
+      <ion-col size="6" class="ion-no-padding">
+        <ion-card-content>
+          <ion-list>
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Select Size</ion-label>
+              </ion-list-header>
+              <ion-item *ngFor="let size of itemSizes;">
+                <ion-label > {{size}} </ion-label >
+                <ion-radio [value]="size" (click)="onSelect(size)"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-card-content>
+      </ion-col>
+      <ion-col size="6" class="ion-no-padding">
+        <ion-card-content>
+          <ion-list>
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Select Color</ion-label>
+              </ion-list-header>
+
+              <ion-item *ngFor="let color of colors;">
+                <ion-label> {{color}} </ion-label>
+                <ion-radio [value]="color" checked></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-card-content>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Description</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>{{(productDetail | async)?.description}}</ion-card-content>
+  </ion-card>
+
+    <ion-fab>
+      <ion-fab-button  (click)="scrollToTop()">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
+<ion-footer>
+  <ion-row class="ion-text-center">
+    <ion-col size="6" class="ion-no-padding">
+      <ion-button expand="full" color="primary" (click)="addToCart()">Add to Cart</ion-button>
+    </ion-col>
+    <ion-col size="6" class="ion-no-padding">
+      <ion-button expand="full" color="secondary" (click)="buyNow(1)">Buy Now</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+

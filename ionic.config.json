@@ -1,5 +1,7 @@
 {
-  "name": "MyIonicProject",
-  "integrations": {},
-  "type": "ionic-angular"
+  "name": "ionic-ecommerce",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
 }
